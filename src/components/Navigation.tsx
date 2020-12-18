@@ -20,7 +20,6 @@ import {useHistory} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
     width: "100%"
   },
   menuButton: {
@@ -28,15 +27,16 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'Andika New Basic',
+    fontSize: 24,
   },
-
 }));
 
 
 export default function Navigation(): JSX.Element {
   const classes = useStyles();
   const history = useHistory()
-  const [auth, setAuth] = React.useState(true);
+  // const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState<EventTarget & HTMLButtonElement | null>(null);
   const open: boolean = Boolean(anchorEl);
 
@@ -87,14 +87,15 @@ export default function Navigation(): JSX.Element {
                 open={open}
                 onClose={handleClose}
               >
-
                 <MenuItem onClick={() => {history.push("/login") // TODO refactor
                     handleClose()}} >Log In</MenuItem>
-
-                <MenuItem onClick={handleClose}>Register</MenuItem>
+                <MenuItem onClick={() => {history.push("/signup")
+                  handleClose()}}>Sign Up</MenuItem>
                 <MenuItem onClick={handleClose}>Log Out</MenuItem>
-                <MenuItem onClick={handleClose}>History</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={() => {history.push("/history")
+                  handleClose()}}>History</MenuItem>
+                <MenuItem onClick={() => {history.push("/account")
+                  handleClose()}}>My account</MenuItem>
               </Menu>
             </div>
         </Toolbar>
