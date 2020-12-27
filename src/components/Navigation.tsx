@@ -56,9 +56,6 @@ export default function Navigation(): JSX.Element {
     <div className={classes.root} >
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" className={classes.title}>
             Easy Ecuation
           </Typography>
@@ -87,15 +84,17 @@ export default function Navigation(): JSX.Element {
                 open={open}
                 onClose={handleClose}
               >
+                <MenuItem onClick={() => {history.push("/")
+                  handleClose()}}>Home</MenuItem>
+                <MenuItem onClick={() => {history.push("/history")
+                  handleClose()}}>History</MenuItem>
                 <MenuItem onClick={() => {history.push("/login") // TODO refactor
                     handleClose()}} >Log In</MenuItem>
                 <MenuItem onClick={() => {history.push("/signup")
                   handleClose()}}>Sign Up</MenuItem>
                 <MenuItem onClick={handleClose}>Log Out</MenuItem>
-                <MenuItem onClick={() => {history.push("/history")
-                  handleClose()}}>History</MenuItem>
                 <MenuItem onClick={() => {history.push("/account")
-                  handleClose()}}>My account</MenuItem>
+                  handleClose()}}>My Account</MenuItem>
               </Menu>
             </div>
         </Toolbar>

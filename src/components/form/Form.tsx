@@ -8,14 +8,16 @@ import Typography from '@material-ui/core/Typography';
 // https://github.com/benawad/react-typescript-material-ui-form/blob/master/src/MyForm.tsx
 
 interface Values {
-    firstName: string;
-    lastName: string;
+    name: string;
+    surname: string;
+    password: string;
     email: string;
+    confirm: string;
 }
 
 interface Props {
     formType: string,
-    onSubmit: (values: Values) => void;
+    onSubmit: (values: Values) => Promise<void>;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +42,7 @@ const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
 
     return (
         <Form onSubmit={onSubmit}
-            render={({ handleSubmit }) => (<form className={classes.root}>
+            render={({ handleSubmit }) => (<form className={classes.root} onSubmit={handleSubmit}>
                 <Paper elevation={3} className={classes.paper}>
                     <Grid direction="column" container spacing={2}>
                         <Grid item>
@@ -72,7 +74,7 @@ const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
                             (formType === "register" || formType === "register-admin") &&
                             <React.Fragment>
                                 <Grid item>
-                                    <Field name="confirm-password" 
+                                    <Field name="confirm" 
                                     placeholder="Confirm Password"
                                     type="password"
                                     component={TextField}/>
@@ -85,7 +87,6 @@ const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
                                 variant="contained"
                                 color="primary"
                                 type="submit"
-                                // disabled={submitting}
                             >
                                 Submit
                             </Button>

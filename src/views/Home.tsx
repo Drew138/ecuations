@@ -9,11 +9,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home(): JSX.Element {
     const classes = useStyles();
-
+    const onSubmit = () => {console.log("hir")} 
     return (
         <div className={classes.cont}>
-            <MyForm onSubmit={({ email, firstName, lastName }) => {
-        //   console.log(email, firstName, lastName);
-        }}/></div>
+            {/* <MyForm  => { */}
+        {/* //   console.log(email, firstName, lastName); */}
+        {/* }}/> */}
+        </div>
     )
 }

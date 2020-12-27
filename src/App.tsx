@@ -5,7 +5,10 @@ import Navigation from './components/Navigation'
 import {Switch, Route} from 'react-router-dom'
 import Home from './views/Home'
 import LogIn from './views/LogIn'
-import Register from './views/SignUp'
+import SignUp from './views/SignUp'
+import History from './views/History'
+import Account from './views/Account'
+import Footer from "./components/Footer"
 
 function App(): JSX.Element {
   return (
@@ -15,13 +18,14 @@ function App(): JSX.Element {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/login" component={LogIn}/>
-          <Route exact path="/signup" component={() => <Register onSubmit={() => {console.log("hir")} }/>}/>
-          <Route exact path="/history" />
-          <Route exact path="/account" />
+          <Route exact path="/signup" component={SignUp}/>
+          <Route exact path="/history" component={History}/>
+          <Route exact path="/account" component={Account}/>
         </Switch>
       </section>
+      <Footer/>
     </div>
   );
 }
-
+// https://material-ui.com/components/avatars/
 export default App;
