@@ -3,7 +3,6 @@ import { Button, Grid, Paper, RadioGroup, FormControl, FormControlLabel, FormLab
 import { Form, Field } from 'react-final-form';
 import {TextField, Checkbox, Radio, Select, Input} from 'final-form-material-ui';
 import { makeStyles } from '@material-ui/core/styles';
-import UserType from './UserType'
 import Typography from '@material-ui/core/Typography';
 // https://github.com/benawad/react-typescript-material-ui-form/blob/master/src/MyForm.tsx
 
@@ -26,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     //   overflow: 'hidden',
     //   padding: theme.spacing(0, 3),
     //   height: "89.5vh"
+    margin: "10px auto",
     },
     paper: {
       width: 400,
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
     const classes = useStyles();
-
+    
     return (
         <Form onSubmit={onSubmit}
             render={({ handleSubmit }) => (<form className={classes.root} onSubmit={handleSubmit}>
@@ -81,7 +81,6 @@ const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
                                 </Grid>
                             </React.Fragment>
                         }
-                        {formType === "register-admin" && <UserType/>}                     
                         <Grid item >
                             <Button
                                 variant="contained"
@@ -90,7 +89,7 @@ const CustomForm: React.FC<Props> = ({onSubmit, formType}) => {
                             >
                                 Submit
                             </Button>
-                            </Grid> 
+                        </Grid> 
                     </Grid>
                 </Paper>
             </form>)} 

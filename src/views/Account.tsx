@@ -1,7 +1,7 @@
 import React from 'react'
 // import MyForm from './SignUp'
 
-import Card from "../components/Account/Card"
+import Card from "../components/account/Card"
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
