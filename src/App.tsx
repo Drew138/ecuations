@@ -9,21 +9,24 @@ import SignUp from './views/SignUp'
 import History from './views/History'
 import Account from './views/Account'
 import Footer from "./components/Footer"
+import { AppProvider } from './Context'
 
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Navigation/>
-      <section>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route exact path="/login" component={LogIn}/>
-          <Route exact path="/signup" component={SignUp}/>
-          <Route exact path="/history" component={History}/>
-          <Route exact path="/account" component={Account}/>
-        </Switch>
-      </section>
-      <Footer/>
+      <AppProvider>
+        <Navigation/>
+        <section>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/login" component={LogIn}/>
+            <Route exact path="/signup" component={SignUp}/>
+            <Route exact path="/history" component={History}/>
+            <Route exact path="/account" component={Account}/>
+          </Switch>
+        </section>
+        <Footer/>
+      </AppProvider>
     </div>
   );
 }
